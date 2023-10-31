@@ -6,10 +6,10 @@ import router from "@/router";
 const editModal = (item, row) => {
   peoplesDeleted.value = []
   currentBook.value.name = row.item.name
-  // currentBook.value.author = row.item.author
-  // currentBook.value.genre = row.item.genre
-  // currentBook.value.description = row.item.description
-  currentBook.value.personId = [{id: 3, name: 'asdsad'},{id: 4, name: 'asdasd2'}]
+  currentBook.value.author = row.item.author
+  currentBook.value.genre = row.item.genre
+  currentBook.value.description = row.item.description
+  currentBook.value.personId = row.item.personId
   openEditModalBook.value = true
 }
 const deletePeoples = (value) => {
