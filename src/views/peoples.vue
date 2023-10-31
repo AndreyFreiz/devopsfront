@@ -28,7 +28,7 @@ const closeEditModal = (id, data, deleted = false) => {
   }
   if (!deleted) {
       data.booksId = booksDeleted.value
-    updatePeople(data)
+    updatePeople(id, data)
     openEditModalUser.value = false
   }
 }
