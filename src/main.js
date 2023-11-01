@@ -12,6 +12,8 @@ import { createApp } from 'vue'
 
 // Plugins
 import { registerPlugins } from '@/plugins'
+import axios from "redaxios";
+axios.defaults.baseURL = 'https://api.example.com';
 
 const app = createApp(App)
 
