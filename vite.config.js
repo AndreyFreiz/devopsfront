@@ -29,6 +29,13 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    rollupOptions: {
+      external: [
+        "redaxios"
+      ]
+    }
+  },
   define: { 'process.env': {} },
   resolve: {
     alias: {
