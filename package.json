@@ -12,6 +12,7 @@
     "@mdi/font": "7.0.96",
     "core-js": "^3.29.0",
     "pinia": "^2.0.0",
+    "redaxios": "^0.5.1",
     "roboto-fontface": "*",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0",
