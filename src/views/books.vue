@@ -1,8 +1,8 @@
 <script setup>
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import { booksComp } from '@/composables/books'
 import router from "@/router";
- const { books, createBook, updateBook, deleteBook} = booksComp()
+ const { books, createBook, updateBook, deleteBook, getBooks} = booksComp()
 const editModal = (item, row) => {
   peoplesDeleted.value = []
   currentBook.value.name = row.item.name
@@ -12,6 +12,10 @@ const editModal = (item, row) => {
   currentBook.value.personId = row.item.personId
   openEditModalBook.value = true
 }
+
+onMounted(() => {
+  getBooks()
+})
 const deletePeoples = (value) => {
   currentBook.value.personId = currentBook.value.personId.filter(el => el.id !== value.id)
   currentBook.value.personId.forEach(el => {
@@ -78,7 +82,7 @@ const headers = ref([
           <span>люди</span>
         </v-btn>
       </div>
-      <v-container>
+      <v-container v-if="books">
         <v-data-table-virtual
           :headers="headers"
           :items="books"
