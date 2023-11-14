@@ -13,7 +13,7 @@ onMounted( () => {
 <template>
   <v-app >
     <div v-if="currentBook">
-      <div> имя {{ currentBook.name}}</div>
+      <div> имя {{ currentBook.bookName}}</div>
       <div> автор {{ currentBook.author}}</div>
       <div> жанр {{ currentBook.genre}}</div>
       <div> описание {{ currentBook.description}}</div>

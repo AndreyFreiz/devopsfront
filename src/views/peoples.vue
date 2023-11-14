@@ -77,7 +77,7 @@ onMounted(() => {
           <span>книги</span>
         </v-btn>
       </div>
-      <v-container>
+      <v-container v-if="peoples">
         <v-data-table-virtual
           :headers="headers"
           :items="peoples"

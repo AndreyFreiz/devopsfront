@@ -9,11 +9,13 @@ export const booksComp = () => {
   const currentBook = ref({})
 
   const getBooks = async () => {
-    books.value = await redaxios.get({url: '/v1/books', baseURL: baseUrl})
+     const {data}  = await redaxios.get({url: '/v1/books', baseURL: baseUrl})
+    books.value = data
   }
 
   const getBook = async (id) => {
-    currentBook.value = await redaxios.get({url: `/v1/books/${id}`, baseURL: baseUrl})
+    const {data}  = await redaxios.get({url: `/v1/books/${id}`, baseURL: baseUrl})
+    currentBook.value = data
   }
 
   const createBook = async (data) => {

@@ -4,12 +4,13 @@ import { booksComp } from '@/composables/books'
 import router from "@/router";
  const { books, createBook, updateBook, deleteBook, getBooks} = booksComp()
 const editModal = (item, row) => {
+  console.log( row.item.bookName)
   peoplesDeleted.value = []
-  currentBook.value.name = row.item.name
+  currentBook.value.bookName = row.item.bookName
   currentBook.value.author = row.item.author
   currentBook.value.genre = row.item.genre
   currentBook.value.description = row.item.description
-  currentBook.value.personId = row.item.personId
+  currentBook.value.id = row.item.id
   openEditModalBook.value = true
 }
 
@@ -39,13 +40,14 @@ const openAddNewBook = () => {
   openCreateBookModal.value = true
 }
 const newBook = {
-  name: '',
+  bookName: '',
   author: '',
   genre: '',
   description: '',
 }
 const currentBook = ref({
-  name: '',
+  id: '',
+  bookName: '',
   author: '',
   genre: '',
   description: '',
@@ -64,7 +66,7 @@ const headers = ref([
     title: 'Название',
     align: 'start',
     sortable: false,
-    key: 'name',
+    key: 'bookName',
   },
   { title: 'Автор', align: 'end', key: 'author' },
   { title: 'Жанр', align: 'end', key: 'genre' },
@@ -88,7 +90,7 @@ const headers = ref([
           :items="books"
           class="elevation-1"
           height="400"
-          item-value="name"
+          item-value="bookName"
           @click:row="editModal"
         ></v-data-table-virtual>
       </v-container>
@@ -112,7 +114,7 @@ const headers = ref([
             >
               <v-text-field
                 label="Название"
-                @change="newBook.name = $event.target.value"
+                @change="newBook.bookName = $event.target.value"
                 hide-details="auto"
               ></v-text-field>
             </v-col>
@@ -185,8 +187,8 @@ const headers = ref([
             >
               <v-text-field
                   label="Название"
-                  @change="currentBook.name = $event.target.value"
-                  :model-value="currentBook.name"
+                  @change="currentBook.bookName = $event.target.value"
+                  :model-value="currentBook.bookName"
                   hide-details="auto"
               ></v-text-field>
             </v-col>
